@@ -45,6 +45,7 @@ dependencies {
     kapt(DaggerHilt.hiltCompiler)
 
     implementation(project(Modules.corePresentation))
+    implementation(project(Modules.coreData))
     implementation(project(Modules.ordersData))
     implementation(project(Modules.ordersDomain))
     implementation(project(Modules.ordersPresentation))
