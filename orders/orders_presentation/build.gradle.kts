@@ -4,6 +4,7 @@ apply {
 
 dependencies {
     "implementation"(project(Modules.coreDomain))
+    "implementation"(project(Modules.corePresentation))
     "implementation"(project(Modules.ordersDomain))
     
     "implementation"(Google.gson)
