@@ -14,3 +14,9 @@ dependencyResolutionManagement {
 }
 rootProject.name = "OrdersApp"
 include ':app'
+include ':orders'
+include ':orders:orders_data'
+include ':orders:orders_domain'
+include ':orders:orders_presentation'
+include ':core'
+include ':core:core_presentation'
