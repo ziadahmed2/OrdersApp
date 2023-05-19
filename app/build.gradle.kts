@@ -47,6 +47,7 @@ dependencies {
   implementation(project(Modules.coreData))
   implementation(project(Modules.coreDomain))
   implementation(project(Modules.corePresentation))
+  
   implementation(project(Modules.ordersData))
   implementation(project(Modules.ordersDomain))
   implementation(project(Modules.ordersPresentation))
@@ -54,6 +55,8 @@ dependencies {
   implementation(AndroidX.coreKtx)
   implementation(AndroidX.appCompat)
   implementation(AndroidX.navigation)
+  implementation(AndroidX.securityCrypto)
+  implementation(AndroidX.appCompat)
   
   implementation(Google.material)
   

@@ -10,4 +10,7 @@ object AndroidX {
 
     private const val constraintLayoutVersion = "2.2.0-alpha09"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    
+    private const val securityCryptoVersion = "1.1.0-alpha06"
+    const val securityCrypto = "androidx.security:security-crypto-ktx:$securityCryptoVersion"
 }
