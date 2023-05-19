@@ -3,6 +3,7 @@ apply {
 }
 
 dependencies {
+    "implementation"(project(Modules.coreDomain))
     "implementation"(project(Modules.ordersDomain))
     
     "implementation"(Retrofit.okHttp)
