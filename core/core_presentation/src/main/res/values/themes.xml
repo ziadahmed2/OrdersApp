@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="Theme.OrdersApp.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.ActionBar" />
+
+  <style name="Theme.OrdersApp.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+  <style name="MainFontRegular">
+    <item name="android:fontFamily">@font/outfit_regular</item>
+  </style>
+
+  <style name="MainFontBold">
+    <item name="android:fontFamily">@font/outfit_bold</item>
+  </style>
+
+  <style name="SecondaryFontRegular">
+    <item name="android:fontFamily">@font/noto_sans_regular</item>
+  </style>
+
+  <style name="SecondaryFontBold">
+    <item name="android:fontFamily">@font/noto_sans_bold</item>
+  </style>
+</resources>

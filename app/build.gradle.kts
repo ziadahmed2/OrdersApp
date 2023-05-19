@@ -19,11 +19,11 @@ android {
   buildTypes.getByName("release").isMinifyEnabled = false
   viewBinding.isEnabled = true
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
   }
   kotlinOptions {
-    jvmTarget = "11"
+    jvmTarget = "17"
   }
   
   @Suppress("UnstableApiUsage")
@@ -46,11 +46,15 @@ dependencies {
   
   implementation(project(Modules.coreData))
   implementation(project(Modules.coreDomain))
+  implementation(project(Modules.corePresentation))
+  
   implementation(project(Modules.ordersData))
   implementation(project(Modules.ordersDomain))
   implementation(project(Modules.ordersPresentation))
   
   implementation(AndroidX.coreKtx)
+  implementation(AndroidX.appCompat)
+  implementation(AndroidX.navigation)
   implementation(AndroidX.securityCrypto)
   implementation(AndroidX.appCompat)
   
