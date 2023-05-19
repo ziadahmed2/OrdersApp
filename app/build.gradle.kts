@@ -44,7 +44,6 @@ dependencies {
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
 
-    implementation(project(Modules.corePresentation))
     implementation(project(Modules.coreData))
     implementation(project(Modules.ordersData))
     implementation(project(Modules.ordersDomain))
