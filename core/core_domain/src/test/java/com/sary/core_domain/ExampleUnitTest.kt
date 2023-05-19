@@ -1,4 +1,4 @@
-package com.sary.core_presentation
+package com.sary.core_domain
 
 import org.junit.Test
 

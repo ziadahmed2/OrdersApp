@@ -3,7 +3,7 @@ apply {
 }
 
 dependencies {
-    "implementation"(project(Modules.corePresentation))
+    "implementation"(project(Modules.coreDomain))
     "implementation"(project(Modules.ordersDomain))
     
     "implementation"(Google.gson)
