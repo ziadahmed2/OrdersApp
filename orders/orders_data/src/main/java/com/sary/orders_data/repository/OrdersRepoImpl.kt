@@ -1,8 +1,9 @@
 package com.sary.orders_data.repository
 
-import android.util.Log
 import com.sary.core_domain.util.Resource
+import com.sary.orders_data.mappers.toDomain
 import com.sary.orders_data.remote.SaryApi
+import com.sary.orders_domain.model.CurrentOrders
 import com.sary.orders_domain.repository.OrdersRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -11,8 +12,8 @@ import java.io.IOException
 
 class OrdersRepoImpl(private val api: SaryApi): OrdersRepo {
   
-  override suspend fun getCurrentOrders(page: Int): Flow<Resource<List<Unit>>> {
-    return flow<Resource<List<Unit>>> {
+  override suspend fun getCurrentOrders(page: Int): Flow<Resource<CurrentOrders>> {
+    return flow<Resource<CurrentOrders>> {
       emit(Resource.Loading(true))
       
       val response = try {
@@ -29,11 +30,8 @@ class OrdersRepoImpl(private val api: SaryApi): OrdersRepo {
       }
       
       response?.let { orderResults ->
-        Log.d("TAG", "getCurrentOrders: ${orderResults.numPages}")
-        emit(Resource.Success(data = listOf()))
+        emit(Resource.Success(data = orderResults.toDomain()))
       }
-      
-      emit(Resource.Loading(false))
     }
   }
 }

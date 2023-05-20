@@ -14,4 +14,7 @@ object AndroidX {
     
     private const val securityCryptoVersion = "1.1.0-alpha06"
     const val securityCrypto = "androidx.security:security-crypto-ktx:$securityCryptoVersion"
+    
+    private const val swipeToRefreshVersion = "1.1.0"
+    const val swipeToRefresh = "androidx.swiperefreshlayout:swiperefreshlayout:$swipeToRefreshVersion"
 }

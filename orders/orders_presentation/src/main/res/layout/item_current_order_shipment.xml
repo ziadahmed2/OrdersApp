@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginHorizontal="15dp"
+  android:background="?selectableItemBackground"
+  android:clickable="true"
+  android:focusable="true"
+  app:cardElevation="0dp"
+  app:cardPreventCornerOverlap="true"
+  app:cardUseCompatPadding="false">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingHorizontal="12dp"
+    android:paddingBottom="5dp">
+
+    <View
+      android:id="@+id/divider"
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:background="@color/neutral_08"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+      android:id="@+id/tv_shipment_status"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:textAppearance="@style/MainFontBold"
+      android:textColor="@color/black"
+      android:textSize="12sp"
+      android:gravity="end"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/tv_shipment_number"
+      app:layout_constraintTop_toTopOf="@id/tv_shipment_number"
+      app:layout_constraintBottom_toBottomOf="@id/tv_shipment_number"
+      tools:text="Delivered" />
+
+    <TextView
+      android:id="@+id/tv_shipment_number"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:textAppearance="@style/MainFontBold"
+      android:textColor="@color/black"
+      android:textSize="14sp"
+      android:layout_marginTop="10dp"
+      app:layout_constraintEnd_toStartOf="@id/tv_shipment_status"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/divider"
+      tools:text="Shipment 1" />
+
+    <TextView
+      android:id="@+id/tv_shipment_date"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:textAppearance="@style/MainFontRegular"
+      android:textColor="@color/neutral_base"
+      android:textSize="12sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/tv_shipment_number"
+      tools:text="12 October, 6:35 PM" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/rv_product_images"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:orientation="horizontal"
+      tools:listitem="@layout/item_product_image"
+      tools:itemCount="4"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      app:layout_constraintTop_toBottomOf="@id/tv_shipment_date"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"/>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
