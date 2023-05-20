@@ -46,6 +46,8 @@ dependencies {
     implementation Google.material
     
     implementation AndroidX.constraintLayout
+    implementation AndroidX.navigationFragment
+    implementation AndroidX.navigationUi
 
     testImplementation Testing.junit4
     testImplementation Testing.junitAndroidExt

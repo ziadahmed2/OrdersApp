@@ -54,7 +54,8 @@ dependencies {
   
   implementation(AndroidX.coreKtx)
   implementation(AndroidX.appCompat)
-  implementation(AndroidX.navigation)
+  implementation(AndroidX.navigationFragment)
+  implementation(AndroidX.navigationUi)
   implementation(AndroidX.securityCrypto)
   implementation(AndroidX.appCompat)
   
