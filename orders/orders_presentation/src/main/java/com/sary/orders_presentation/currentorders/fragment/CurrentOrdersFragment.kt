@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sary.orders_presentation.databinding.FragmentCurrentOrdersBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CurrentOrdersFragment: Fragment() {
   
   private var _binding: FragmentCurrentOrdersBinding? = null

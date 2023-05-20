@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="error_unknown">خطأ غير معروف</string>
+  <string name="connection_error">رجاء تفقد الاتصال ب الانترنت</string>
+  <string name="general_error">خطأ غير متوقع</string>
+</resources>
