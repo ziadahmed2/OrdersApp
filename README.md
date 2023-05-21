@@ -9,3 +9,4 @@
 - Coroutines for concurrency.
 - Retrofit.
 - Navigation component.
+- Simple Unit tests.
