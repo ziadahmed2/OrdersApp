@@ -3,6 +3,7 @@ package com.sary.orders_data.di
 import android.content.Context
 import com.sary.core_data.extensions.isInternetAvailable
 import com.sary.core_domain.util.Exceptions
+import com.sary.core_domain.util.LanguageManager
 import com.sary.orders_data.remote.SaryApi
 import com.sary.orders_data.repository.OrdersRepoImpl
 import com.sary.orders_domain.repository.OrdersRepo
@@ -30,7 +31,7 @@ object OrdersDataModule {
     val request = chain.request().newBuilder()
       .addHeader("Authorization", "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjgyNDA2LCJ1c2VyX3Bob25lIjoiOTY2NTEyMTIxMjM0In0.7Taumv67S0xEv2P5K8F9JdJMYAferY45ZuNghUXtPW4")
       .addHeader("App-Version", "7.7.0.0.0")
-      .addHeader("Accept-Language", "en")
+      .addHeader("Accept-Language", LanguageManager.getLanguage(context))
       .addHeader("Device-Type", "android")
       .addHeader("Platform", "FLAGSHIP")
       .build()
