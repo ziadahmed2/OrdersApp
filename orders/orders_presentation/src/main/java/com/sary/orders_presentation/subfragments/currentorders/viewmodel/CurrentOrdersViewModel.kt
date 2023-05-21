@@ -32,6 +32,7 @@ class CurrentOrdersViewModel @Inject constructor(
   private var isLoading: Boolean = false
   
   fun getCurrentOrders(reset: Boolean) {
+    val isFirstTime = cachedList.isEmpty() && currentOffset == 1 && !isLoading
     if (reset) {
       cachedList.clear()
       hasNextPage = true
@@ -59,7 +60,7 @@ class CurrentOrdersViewModel @Inject constructor(
             
             is Resource.Loading -> {
               isLoading = true
-              CurrentOrdersUiState.Loading
+              if (isFirstTime) CurrentOrdersUiState.FirstLoading else CurrentOrdersUiState.Loading
             }
           }
         }
