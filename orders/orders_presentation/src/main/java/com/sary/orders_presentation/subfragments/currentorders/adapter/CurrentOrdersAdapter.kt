@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sary.orders_domain.model.OrderInfo
 import com.sary.orders_domain.model.Shipment
+import com.sary.orders_presentation.R
 import com.sary.orders_presentation.databinding.ItemCurrentOrderFooterBinding
 import com.sary.orders_presentation.databinding.ItemCurrentOrderHeaderBinding
 import com.sary.orders_presentation.databinding.ItemCurrentOrderShipmentBinding
@@ -34,8 +35,8 @@ class CurrentOrdersAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     fun bind(item: OrderInfo?) {
       with(binding) {
         item?.let {
-          tvOrderNumber.text = "Order number #${it.orderId}"
-          tvOrderStatus.text = "Ordered: ${it.orderDate} at ${it.orderTime}"
+          tvOrderNumber.text = tvOrderNumber.context.getString(R.string.order_number, it.orderId.toString())
+          tvOrderStatus.text = tvOrderStatus.context.getString(R.string.order_status, it.orderDate, it.orderTime)
         }
       }
     }
@@ -47,9 +48,14 @@ class CurrentOrdersAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     
     fun bind(item: Shipment?) {
       with(binding) {
-        tvShipmentNumber.text = "Shipment ${item?.shipmentCode}"
+        tvShipmentNumber.text = tvShipmentNumber.context.getString(R.string.shipment_title, item?.shipmentCode)
         tvShipmentStatus.text = item?.deliveryCurrentStatus
-        tvShipmentDate.text = "${item?.deliveryDate}, ${item?.intervalStartTime12} - ${item?.intervalEndTime12}"
+        tvShipmentDate.text = tvShipmentDate.context.getString(
+          R.string.shipment_date_title,
+          item?.deliveryDate,
+          item?.intervalStartTime12,
+          item?.intervalEndTime12
+        )
         rvProductImages.apply {
           adapter = ProductImageAdapter().apply {
             isNestedScrollingEnabled = false

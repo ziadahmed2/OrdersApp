@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sary.core_presentation.extensions.toggleActivation
 import com.sary.orders_domain.model.past.PastOrderResult
+import com.sary.orders_presentation.R
 import com.sary.orders_presentation.databinding.ItemPastOrderBinding
 import com.sary.orders_presentation.subfragments.currentorders.adapter.ProductImageAdapter
 
@@ -18,12 +19,12 @@ class PastOrdersAdapter: RecyclerView.Adapter<PastOrdersAdapter.PastOrdersViewHo
     
     fun bind(result: PastOrderResult) {
       with(binding) {
-        tvOrderNumber.text = "Order number #${result.orderInfo?.orderId}"
-        tvOrderDate.text = "Arrives: ${result.orderInfo?.orderDate} at ${result.orderInfo?.orderTime}"
+        tvOrderNumber.text = tvOrderNumber.context.getString(R.string.order_number, result.orderInfo?.orderId.toString())
+        tvOrderDate.text = tvOrderDate.context.getString(R.string.order_date, result.orderInfo?.orderDate, result.orderInfo?.orderTime)
         tvOrderStatus.text = result.orderInfo?.orderStatus
-        tvOrderAmount.text = "SAR ${result.cartTotal}"
+        tvOrderAmount.text = tvOrderAmount.context.getString(R.string.currency, result.cartTotal)
         btnRate.toggleActivation(result.canRate ?: false)
-        btnRate.text = if (result.canRate == true) "Rate" else "Already rated"
+        btnRate.text =  btnRate.context.getString(if (result.canRate == true) R.string.rate else R.string.already_rated)
         rvProductImages.apply {
           adapter = ProductImageAdapter().apply {
             isNestedScrollingEnabled = false
