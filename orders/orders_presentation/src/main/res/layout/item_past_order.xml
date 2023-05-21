@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginHorizontal="15dp"
+  android:layout_marginVertical="5dp"
+  android:background="?selectableItemBackground"
+  android:clickable="true"
+  android:focusable="true"
+  app:cardCornerRadius="8dp"
+  app:cardElevation="2dp"
+  app:cardPreventCornerOverlap="true"
+  app:cardUseCompatPadding="false"
+  app:strokeColor="@color/neutral_08"
+  app:strokeWidth="1dp">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingTop="14dp">
+
+    <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/center_guideline"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.55" />
+
+    <TextView
+      android:id="@+id/tv_order_number"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="12dp"
+      android:layout_marginTop="10dp"
+      android:textAppearance="@style/MainFontBold"
+      android:textColor="@color/black"
+      android:textSize="14sp"
+      app:layout_constraintEnd_toStartOf="@id/tv_order_status"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="Order number #364874" />
+
+    <TextView
+      android:id="@+id/tv_order_status"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="12dp"
+      android:gravity="end"
+      android:textAppearance="@style/MainFontBold"
+      android:textColor="@color/black"
+      android:textSize="12sp"
+      app:layout_constraintBottom_toBottomOf="@id/tv_order_number"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/tv_order_number"
+      app:layout_constraintTop_toTopOf="@id/tv_order_number"
+      tools:text="Delivered" />
+
+    <TextView
+      android:id="@+id/tv_order_date"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="12dp"
+      android:layout_marginTop="4dp"
+      android:textAppearance="@style/MainFontRegular"
+      android:textColor="@color/neutral_base"
+      android:textSize="14sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/tv_order_number"
+      tools:text="Ordered: Saturday, 12 October, 6:35 PM" />
+
+    <TextView
+      android:id="@+id/tv_order_amount"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="12dp"
+      android:gravity="end"
+      android:textAppearance="@style/MainFontBold"
+      android:textColor="@color/accent_base"
+      android:textSize="16sp"
+      app:layout_constraintBottom_toBottomOf="@id/rv_product_images"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/center_guideline"
+      app:layout_constraintTop_toTopOf="@id/rv_product_images"
+      tools:text="EGP 850" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/rv_product_images"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="12dp"
+      android:layout_marginTop="10dp"
+      android:orientation="horizontal"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      app:layout_constraintEnd_toStartOf="@id/center_guideline"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/tv_order_date"
+      tools:itemCount="4"
+      tools:listitem="@layout/item_product_image" />
+
+    <View
+      android:id="@+id/horizontal_divider"
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:layout_marginTop="15dp"
+      android:background="@color/neutral_08"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/rv_product_images" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/btn_reorder"
+      style="@style/MaterialButton.TextButton"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="@string/reorder"
+      android:textAppearance="@style/MainFontBold"
+      android:textColor="@color/accent_base"
+      android:textSize="14sp"
+      app:backgroundTint="@color/white"
+      app:layout_constraintEnd_toStartOf="@id/vertical_divider"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/horizontal_divider"
+      app:textAllCaps="false" />
+
+    <View
+      android:id="@+id/vertical_divider"
+      android:layout_width="1dp"
+      android:layout_height="0dp"
+      android:background="@color/neutral_08"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/horizontal_divider" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/btn_rate"
+      style="@style/MaterialButton.TextButton"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:textAppearance="@style/MainFontBold"
+      android:textColor="@color/accent_base"
+      android:textSize="14sp"
+      app:backgroundTint="@color/white"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/vertical_divider"
+      app:layout_constraintTop_toBottomOf="@id/horizontal_divider"
+      app:textAllCaps="false"
+      tools:text="@string/rate"/>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
