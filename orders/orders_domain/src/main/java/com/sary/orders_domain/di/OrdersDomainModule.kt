@@ -2,6 +2,7 @@ package com.sary.orders_domain.di
 
 import com.sary.orders_domain.repository.OrdersRepo
 import com.sary.orders_domain.use_case.CurrentOrdersUseCase
+import com.sary.orders_domain.use_case.PastOrdersUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,5 +17,11 @@ object OrdersDomainModule {
   @Provides
   fun provideCurrentOrdersUseCase(repository: OrdersRepo): CurrentOrdersUseCase {
     return CurrentOrdersUseCase(ordersRepo = repository)
+  }
+  
+  @ViewModelScoped
+  @Provides
+  fun providePastOrdersUseCase(repository: OrdersRepo): PastOrdersUseCase {
+    return PastOrdersUseCase(ordersRepo = repository)
   }
 }

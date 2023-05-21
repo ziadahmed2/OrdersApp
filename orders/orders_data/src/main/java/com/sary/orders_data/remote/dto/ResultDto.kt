@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class ResultDto(
   
   @SerializedName("cart_id") var cartId: Int? = null,
-  @SerializedName("cart_total") var cartTotal: Double? = null,
+  @SerializedName("cart_total") var cartTotal: String? = null,
   @SerializedName("order_status") var orderStatus: String? = null,
   @SerializedName("order_status_code") var orderStatusCode: Int? = null,
   @SerializedName("order_date") var orderDate: String? = null,

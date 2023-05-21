@@ -2,8 +2,8 @@ package com.sary.orders_presentation.viewpager
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.sary.orders_presentation.currentorders.fragment.CurrentOrdersFragment
-import com.sary.orders_presentation.previousorders.fragment.PreviousOrdersFragment
+import com.sary.orders_presentation.subfragments.currentorders.fragment.CurrentOrdersFragment
+import com.sary.orders_presentation.subfragments.previousorders.fragment.PreviousOrdersFragment
 
 class OrdersViewPagerAdapter(fragment: Fragment): FragmentStateAdapter(fragment) {
   

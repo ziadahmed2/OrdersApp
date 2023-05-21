@@ -1,4 +1,4 @@
-package com.sary.orders_presentation.previousorders.fragment
+package com.sary.orders_presentation.subfragments.previousorders.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

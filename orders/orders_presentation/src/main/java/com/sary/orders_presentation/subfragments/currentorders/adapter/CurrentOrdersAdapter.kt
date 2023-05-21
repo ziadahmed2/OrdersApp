@@ -1,4 +1,4 @@
-package com.sary.orders_presentation.currentorders.adapter
+package com.sary.orders_presentation.subfragments.currentorders.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

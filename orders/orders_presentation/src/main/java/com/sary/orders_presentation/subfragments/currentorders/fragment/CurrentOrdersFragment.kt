@@ -1,4 +1,4 @@
-package com.sary.orders_presentation.currentorders.fragment
+package com.sary.orders_presentation.subfragments.currentorders.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,9 +11,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.sary.core_presentation.extensions.activatePagination
-import com.sary.orders_presentation.currentorders.UiState
-import com.sary.orders_presentation.currentorders.adapter.CurrentOrdersAdapter
-import com.sary.orders_presentation.currentorders.viewmodel.CurrentOrdersViewModel
+import com.sary.orders_presentation.subfragments.currentorders.CurrentOrdersUiState
+import com.sary.orders_presentation.subfragments.currentorders.adapter.CurrentOrdersAdapter
+import com.sary.orders_presentation.subfragments.currentorders.viewmodel.CurrentOrdersViewModel
 import com.sary.orders_presentation.databinding.FragmentCurrentOrdersBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -54,11 +54,11 @@ class CurrentOrdersFragment: Fragment() {
     }
   }
   
-  private fun render(uiState: UiState) {
+  private fun render(uiState: CurrentOrdersUiState) {
     when (uiState) {
-      is UiState.Loading -> binding.srOrders.isRefreshing = true
-      is UiState.Success -> setAdapterData(uiState.currentOrdersResult)
-      is UiState.Error -> TODO()
+      is CurrentOrdersUiState.Loading -> binding.srOrders.isRefreshing = true
+      is CurrentOrdersUiState.Success -> setAdapterData(uiState.currentOrdersResult)
+      is CurrentOrdersUiState.Error -> TODO()
     }
   }
   

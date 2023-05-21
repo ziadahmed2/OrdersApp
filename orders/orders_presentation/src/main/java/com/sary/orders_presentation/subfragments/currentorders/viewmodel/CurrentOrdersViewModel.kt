@@ -1,4 +1,4 @@
-package com.sary.orders_presentation.currentorders.viewmodel
+package com.sary.orders_presentation.subfragments.currentorders.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,10 +6,10 @@ import com.sary.core_domain.R
 import com.sary.core_domain.util.Resource
 import com.sary.core_domain.util.UiText
 import com.sary.core_domain.util.getError
-import com.sary.orders_domain.model.CurrentOrderResult
+import com.sary.orders_domain.model.current.CurrentOrderResult
 import com.sary.orders_domain.model.OrderInfo
 import com.sary.orders_domain.use_case.CurrentOrdersUseCase
-import com.sary.orders_presentation.currentorders.UiState
+import com.sary.orders_presentation.subfragments.currentorders.CurrentOrdersUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -23,8 +23,8 @@ import javax.inject.Inject
 class CurrentOrdersViewModel @Inject constructor(
   private val currentOrdersUseCase: CurrentOrdersUseCase): ViewModel() {
   
-  private val _userFlow = MutableStateFlow<UiState>(UiState.Loading)
-  val userFlow: StateFlow<UiState> = _userFlow.asStateFlow()
+  private val _userFlow = MutableStateFlow<CurrentOrdersUiState>(CurrentOrdersUiState.Loading)
+  val userFlow: StateFlow<CurrentOrdersUiState> = _userFlow.asStateFlow()
   
   private var currentOffset: Int? = 1
   private var cachedList: MutableList<CurrentOrderResult> = mutableListOf()
@@ -48,18 +48,18 @@ class CurrentOrdersViewModel @Inject constructor(
                 hasNextPage = ordersResponse.hasNextPage
                 currentOffset = currentOffset?.plus(1)
                 ordersResponse.orders.addToCache()
-                UiState.Success(cachedList.mapToTransactionsToAdapter())
-              } ?: UiState.Error(UiText.StringResource(R.string.general_error))
+                CurrentOrdersUiState.Success(cachedList.mapToCurrentOrdersAdapter())
+              } ?: CurrentOrdersUiState.Error(UiText.StringResource(R.string.general_error))
             }
             
             is Resource.Error -> {
               isLoading = false
-              UiState.Error(result.getError())
+              CurrentOrdersUiState.Error(result.getError())
             }
             
             is Resource.Loading -> {
               isLoading = true
-              UiState.Loading
+              CurrentOrdersUiState.Loading
             }
           }
         }
@@ -71,7 +71,7 @@ class CurrentOrdersViewModel @Inject constructor(
     cachedList.addAll(this@addToCache)
   }
   
-  private fun List<CurrentOrderResult>.mapToTransactionsToAdapter(): List<Any> {
+  private fun List<CurrentOrderResult>.mapToCurrentOrdersAdapter(): List<Any> {
     val map = mutableMapOf<OrderInfo, MutableList<Any>>()
     
     forEach { item ->

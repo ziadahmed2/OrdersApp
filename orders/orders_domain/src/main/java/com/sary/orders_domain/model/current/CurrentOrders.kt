@@ -1,4 +1,4 @@
-package com.sary.orders_domain.model
+package com.sary.orders_domain.model.current
 
 data class CurrentOrders(
   var hasNextPage: Boolean,
