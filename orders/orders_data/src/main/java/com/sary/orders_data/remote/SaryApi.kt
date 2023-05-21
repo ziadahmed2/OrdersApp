@@ -21,4 +21,14 @@ interface SaryApi {
     @Query("status")
     status: String = CURRENT_ORDERS_STATUS
   ): OrdersResponseDto
+  
+  @GET(ORDERS_URL)
+  suspend fun getPastOrders(
+    @Query("page_size")
+    pageSize: Int = 10,
+    @Query("page")
+    page: Int,
+    @Query("status")
+    status: String = PAST_ORDERS_STATUS
+  ): OrdersResponseDto
 }

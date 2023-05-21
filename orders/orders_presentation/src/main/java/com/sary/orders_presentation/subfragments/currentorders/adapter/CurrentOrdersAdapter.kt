@@ -1,4 +1,4 @@
-package com.sary.orders_presentation.currentorders.adapter
+package com.sary.orders_presentation.subfragments.currentorders.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -34,7 +34,7 @@ class CurrentOrdersAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     fun bind(item: OrderInfo?) {
       with(binding) {
         item?.let {
-          tvOrderNumber.text = "Order number ${it.orderId}"
+          tvOrderNumber.text = "Order number #${it.orderId}"
           tvOrderStatus.text = "Ordered: ${it.orderDate} at ${it.orderTime}"
         }
       }
