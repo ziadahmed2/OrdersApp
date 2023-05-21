@@ -13,4 +13,6 @@ dependencies {
   
   "implementation"(Glide.glide)
   "annotationProcessor"(Glide.glideAnnotation)
+  
+  "implementation"(Shimmer.shimmer)
 }

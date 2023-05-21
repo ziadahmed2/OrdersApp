@@ -58,6 +58,7 @@ class PreviousOrdersFragment: Fragment() {
   
   private fun render(uiState: PreviousOrdersUiState) {
     when (uiState) {
+      is PreviousOrdersUiState.FirstLoading -> setFirstLoading(true)
       is PreviousOrdersUiState.Loading -> binding.srPrevOrders.isRefreshing = true
       is PreviousOrdersUiState.Success -> setAdapterData(uiState.previousOrderResults)
       is PreviousOrdersUiState.Error -> Toast.makeText(
@@ -65,9 +66,19 @@ class PreviousOrdersFragment: Fragment() {
         uiState.uiText.asString(requireContext()),
         Toast.LENGTH_LONG
       ).show().also {
+        setFirstLoading(false)
         binding.srPrevOrders.isRefreshing = false
       }
     }
+  }
+  
+  private fun setFirstLoading(loading: Boolean) {
+    binding.inclShimmer.root.apply {
+      isVisible = loading
+      if (loading) startShimmer() else stopShimmer()
+    }
+    
+    binding.rvPrevOrders.isVisible = false
   }
   
   private fun setupOrdersRecyclerView() = binding.rvPrevOrders.apply {
@@ -84,6 +95,7 @@ class PreviousOrdersFragment: Fragment() {
   }
   
   private fun setAdapterData(orders: List<PastOrderResult>) {
+    setFirstLoading(false)
     binding.srPrevOrders.isRefreshing = false
     binding.rvPrevOrders.isVisible = true
     ordersAdapter.setData(orders)

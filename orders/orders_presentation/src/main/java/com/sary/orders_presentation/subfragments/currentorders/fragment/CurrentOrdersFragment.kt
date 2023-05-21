@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -56,10 +57,27 @@ class CurrentOrdersFragment: Fragment() {
   
   private fun render(uiState: CurrentOrdersUiState) {
     when (uiState) {
+      is CurrentOrdersUiState.FirstLoading -> setFirstLoading(true)
       is CurrentOrdersUiState.Loading -> binding.srOrders.isRefreshing = true
       is CurrentOrdersUiState.Success -> setAdapterData(uiState.currentOrdersResult)
-      is CurrentOrdersUiState.Error -> TODO()
+      is CurrentOrdersUiState.Error -> Toast.makeText(
+        requireContext(),
+        uiState.uiText.asString(requireContext()),
+        Toast.LENGTH_LONG
+      ).show().also {
+        setFirstLoading(false)
+        binding.srOrders.isRefreshing = false
+      }
     }
+  }
+  
+  private fun setFirstLoading(loading: Boolean) {
+    binding.inclShimmer.root.apply {
+      isVisible = loading
+      if (loading) startShimmer() else stopShimmer()
+    }
+    
+    binding.rvOrders.isVisible = false
   }
   
   private fun setupOrdersRecyclerView() = binding.rvOrders.apply {
@@ -76,6 +94,7 @@ class CurrentOrdersFragment: Fragment() {
   }
   
   private fun setAdapterData(orders: List<Any>) {
+    setFirstLoading(false)
     binding.srOrders.isRefreshing = false
     binding.rvOrders.isVisible = true
     ordersAdapter.setData(orders)
