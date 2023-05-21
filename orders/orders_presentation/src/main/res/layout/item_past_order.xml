@@ -116,7 +116,7 @@
       style="@style/MaterialButton.TextButton"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:text="Re-order"
+      android:text="@string/reorder"
       android:textAppearance="@style/MainFontBold"
       android:textColor="@color/accent_base"
       android:textSize="14sp"
@@ -141,7 +141,6 @@
       style="@style/MaterialButton.TextButton"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:text="Rate"
       android:textAppearance="@style/MainFontBold"
       android:textColor="@color/accent_base"
       android:textSize="14sp"
@@ -149,7 +148,8 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toEndOf="@id/vertical_divider"
       app:layout_constraintTop_toBottomOf="@id/horizontal_divider"
-      app:textAllCaps="false" />
+      app:textAllCaps="false"
+      tools:text="@string/rate"/>
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 

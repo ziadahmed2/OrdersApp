@@ -11,4 +11,5 @@
   <string name="currency">%s SAR</string>
   <string name="rate">Rate</string>
   <string name="already_rated">Already rated</string>
+  <string name="reorder">Re-order</string>
 </resources>

@@ -11,4 +11,5 @@
   <string name="currency">%s ريال</string>
   <string name="rate">تقييم</string>
   <string name="already_rated">تم التقييم</string>
+  <string name="reorder">اعادة الطلب</string>
 </resources>
