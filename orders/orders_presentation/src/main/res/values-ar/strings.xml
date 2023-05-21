@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="orders_title">الطلبات</string>
+  <string name="current_orders_title">الطلبات الحالية</string>
+  <string name="past_orders_title">الطلبات السابقة</string>
+  <string name="shipment_title">شحنة %s</string>
+  <string name="shipment_date_title">%s, %s - %s</string>
+  <string name="order_number">طلب رقم #%s</string>
+  <string name="order_status">تم الطلب: %s في %s</string>
+  <string name="order_date">يصل: %s في %s</string>
+  <string name="currency">%s ريال</string>
+  <string name="rate">تقييم</string>
+  <string name="already_rated">تم التقييم</string>
+</resources>

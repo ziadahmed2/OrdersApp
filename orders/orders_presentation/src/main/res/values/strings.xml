@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="orders_title">Orders</string>
+  <string name="current_orders_title">Current Orders</string>
+  <string name="past_orders_title">Past Orders</string>
+  <string name="shipment_title">Shipment %s</string>
+  <string name="shipment_date_title">%s, %s - %s</string>
+  <string name="order_number">Order number #%s</string>
+  <string name="order_status">Ordered: %s at %s</string>
+  <string name="order_date">Arrives: %s at %s</string>
+  <string name="currency">%s SAR</string>
+  <string name="rate">Rate</string>
+  <string name="already_rated">Already rated</string>
+</resources>

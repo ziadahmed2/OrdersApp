@@ -54,15 +54,19 @@ class OrdersFragment: Fragment() {
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
       return when (menuItem.itemId) {
         R.id.english -> {
-          languageManager.setLanguage(requireContext(), Languages.EN)
-          requireContext().restartApp()
-          true
+          if (languageManager.getLanguage(requireContext()) != Languages.EN) {
+            languageManager.setLanguage(requireContext(), Languages.EN)
+            requireContext().restartApp()
+            true
+          } else false
         }
         
         R.id.arabic -> {
-          languageManager.setLanguage(requireContext(), Languages.AR)
-          requireContext().restartApp()
-          true
+          if (languageManager.getLanguage(requireContext()) != Languages.AR) {
+            languageManager.setLanguage(requireContext(), Languages.AR)
+            requireContext().restartApp()
+            true
+          } else false
         }
         
         else -> false
@@ -70,7 +74,7 @@ class OrdersFragment: Fragment() {
     }
   }
   
-  private fun setupToolbar() = binding.header.setupToolbar(Pair(false, "Orders")) {
+  private fun setupToolbar() = binding.header.setupToolbar(Pair(false, getString(R.string.orders_title))) {
     (activity as AppCompatActivity).setSupportActionBar(it.toolbar)
     activity?.actionBar?.setDisplayShowTitleEnabled(false)
     activity?.actionBar?.setDisplayHomeAsUpEnabled(true)
@@ -83,8 +87,8 @@ class OrdersFragment: Fragment() {
       binding.tabLayout, binding.viewPager
     ) { tab, position ->
       when (position) {
-        0 -> tab.text = "Current Orders"
-        1 -> tab.text = "Previous Orders"
+        0 -> tab.text = getString(R.string.current_orders_title)
+        1 -> tab.text = getString(R.string.past_orders_title)
       }
     }.attach()
   }
